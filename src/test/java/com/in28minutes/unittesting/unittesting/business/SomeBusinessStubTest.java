@@ -6,7 +6,16 @@ import org.junit.jupiter.api.Test;
 
 import com.in28minutes.unittesting.unittesting.data.SomeDataService;
 
+// A Stub impl makes your unit tests not dependant on actual DB instances.
+//
+// Disadvantages of Stubs are:
+//   - Hundreds of classes would, in theory, explode.
+//   - Maintainability is a big headache
+//   - If a new method is added to the main interface, all stub classes would need updating.
+//   -
+//   -
 class SomeDataServiceStub implements SomeDataService {
+
 	@Override
 	public int[] retrieveAllData() {
 		return new int[] { 1, 2, 3 };
@@ -14,6 +23,7 @@ class SomeDataServiceStub implements SomeDataService {
 }
 
 class SomeDataServiceEmptyStub implements SomeDataService {
+
 	@Override
 	public int[] retrieveAllData() {
 		return new int[] { };
@@ -21,16 +31,17 @@ class SomeDataServiceEmptyStub implements SomeDataService {
 }
 
 class SomeDataServiceOneElementStub implements SomeDataService {
+
 	@Override
 	public int[] retrieveAllData() {
 		return new int[] { 5 };
 	}
 }
 
-public class SomeBusinessStubTest {
+class SomeBusinessStubTest {
 
 	@Test
-	public void calculateSumUsingDataService_basic() {
+	void calculateSumUsingDataService_basic() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		business.setSomeDataService(new SomeDataServiceStub());
 		int actualResult = business.calculateSumUsingDataService();
@@ -39,7 +50,7 @@ public class SomeBusinessStubTest {
 	}
 
 	@Test
-	public void calculateSumUsingDataService_empty() {
+	void calculateSumUsingDataService_empty() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		business.setSomeDataService(new SomeDataServiceEmptyStub());
 		int actualResult = business.calculateSumUsingDataService();//new int[] {}
@@ -48,7 +59,7 @@ public class SomeBusinessStubTest {
 	}
 
 	@Test
-	public void calculateSumUsingDataService_oneValue() {
+	void calculateSumUsingDataService_oneValue() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		business.setSomeDataService(new SomeDataServiceOneElementStub());
 		int actualResult = business.calculateSumUsingDataService();//new int[] { 5 }
