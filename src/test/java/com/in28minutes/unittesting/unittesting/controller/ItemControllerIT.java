@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
-public class ItemControllerIT {
+class ItemControllerIT {
 	
 	@Autowired
 	private TestRestTemplate restTemplate;
 		
 	@Test
-	public void contextLoads() throws JSONException {	
+	void contextLoads() throws JSONException {	
 		
 		String response = this.restTemplate.getForObject("/all-items-from-database", String.class);
 		

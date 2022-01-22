@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
-public class JsonPathTest {
+class JsonPathTest {
 	
 	@Test
-	public void learning() {
+	void learning() {
 		String responseFromService = "[" + 
 				"{\"id\":10000, \"name\":\"Pencil\", \"quantity\":5}," + 
 				"{\"id\":10001, \"name\":\"Pen\", \"quantity\":15}," + 
