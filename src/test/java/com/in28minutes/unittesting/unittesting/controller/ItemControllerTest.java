@@ -1,31 +1,31 @@
 package com.in28minutes.unittesting.unittesting.controller;
 
 import com.in28minutes.unittesting.unittesting.business.ItemBusinessService;
-import com.in28minutes.unittesting.unittesting.business.ItemBusinessServiceTest;
+import com.in28minutes.unittesting.unittesting.model.Item;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
-@ExtendWith(MockitoExtension.class)
+@WebMvcTest(ItemController.class)
 class ItemControllerTest {
 
     @Autowired
-    ItemBusinessService itemBusinessService = mock(ItemBusinessService.class);
-    @Autowired
     MockMvc mockMvc;
+
+    @MockBean
+    ItemBusinessService itemBusinessService;
 
     @Test
     void dummyItem_basic() throws Exception {
@@ -38,10 +38,28 @@ class ItemControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100,\"value\":0}"))
                 .andReturn();
+
+        assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
     }
 
     @Test
     void itemFromBusinessService_basic() throws Exception {
+        // given
+        RequestBuilder request = MockMvcRequestBuilders
+                .get("/item-from-business-service")
+                .accept(MediaType.APPLICATION_JSON);
+
+        // when
+        when(itemBusinessService.retrieveHardcodedItem())
+                .thenReturn(new Item(2, "Item2", 10, 10));
+
+        MvcResult result = mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"id\": 2, \"name\": \"Item2\"}"))
+                .andExpect(content().json("{id:2,name:Item2,price:10}"))
+                .andReturn();
+
+        System.out.println(result.getResponse().getContentAsString());
 
     }
 
