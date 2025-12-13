@@ -288,10 +288,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.in28minutes.springunittestingwithmockito.data.ItemRepository;
 import com.in28minutes.springunittestingwithmockito.entity.Item;
@@ -328,10 +328,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.in28minutes.springunittestingwithmockito.data.SomeDataService;
 
@@ -388,14 +388,14 @@ package com.in28minutes.springunittestingwithmockito.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class ItemControllerIT {
 
@@ -423,11 +423,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -437,7 +437,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import com.in28minutes.springunittestingwithmockito.business.ItemService;
 import com.in28minutes.springunittestingwithmockito.entity.Item;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(value = ItemController.class)
 public class ItemControllerTest {
 
@@ -470,7 +470,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -478,7 +478,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.in28minutes.springunittestingwithmockito.entity.Item;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @DataJpaTest
 public class ItemRepositoryTest {
 
@@ -682,17 +682,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.in28minutes.springunittestingwithmockito.business.ItemService;
 import com.in28minutes.springunittestingwithmockito.data.ItemRepository;
 import com.in28minutes.springunittestingwithmockito.entity.Item;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class SpringUnitTestingWithMockitoApplicationTests {
 	

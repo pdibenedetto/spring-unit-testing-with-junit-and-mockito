@@ -14,7 +14,7 @@ You will be using Spring (Dependency Management), Spring Boot, Maven (dependenci
 
 You will use all the frameworks that are part of Spring Boot Starter Test - JUnit, Spring Test, Spring Boot Test, AssertJ, Hamcrest, Mockito, JSONassert and JsonPath.
 
-You will learn to use the most important Unit Testing Annotations - @RunWith(SpringRunner.class), @SpringBootTest, @WebMvcTest, @DataJpaTest and @MockBean.
+You will learn to use the most important Unit Testing Annotations - @ExtendWith(MockitoExtension.class), @SpringBootTest, @WebMvcTest, @DataJpaTest, @MockBean, @MockitoBean, 
 
 ### Recommended Tools
 - Java 17 or Later
@@ -65,7 +65,7 @@ org.hamcrest.MatcherAssert
 - You will learn to write independent unit tests for RESTful web services talking with multiple layers - web, business and data
 - You will learn to write integration tests using an in memory database - H2
 - You will learn to use all the frameworks that are part of Spring Boot Starter Test - JUnit, Spring Test, Spring Boot Test, AssertJ, Hamcrest, Mockito, JSONassert and JsonPath.
-- You will learn to use the most important Unit Testing Annotations - @RunWith(SpringRunner.class), @SpringBootTest, @WebMvcTest, @DataJpaTest and @MockBean.
+- You will learn to use the most important Unit Testing Annotations - @ExtendWith(MockitoExtension.class), @SpringBootTest, @WebMvcTest, @DataJpaTest and @MockBean.
 
 ### Requirements
 - You should have working knowledge of Java and Annotations. 
