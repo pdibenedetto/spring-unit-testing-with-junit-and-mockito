@@ -6,9 +6,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+//import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest; // Spring Boot 3 or below
 
 import com.in28minutes.unittesting.unittesting.model.Item;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest; // Spring Boot 4
 
 @DataJpaTest
 public class ItemRepositoryTest {

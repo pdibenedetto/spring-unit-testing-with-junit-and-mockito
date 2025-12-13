@@ -17,9 +17,9 @@ You will use all the frameworks that are part of Spring Boot Starter Test - JUni
 You will learn to use the most important Unit Testing Annotations - @RunWith(SpringRunner.class), @SpringBootTest, @WebMvcTest, @DataJpaTest and @MockBean.
 
 ### Recommended Tools
-- Java 8 or Later
+- Java 17 or Later
 - Eclipse Oxygen or Later
-- Spring Boot 2.0.0.RELEASE or Later
+- Spring Boot 3.0.x or 4.0.x 
 
 ### Installing Java 8 and Eclipse
 - Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3

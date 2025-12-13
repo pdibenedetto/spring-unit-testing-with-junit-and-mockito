@@ -35,9 +35,9 @@ In this Beginners Tutorial on JUnit 5, you will learn how to
 	- Setting up JUnit 5 with Mockito and Spring Boot 2.0 - https://medium.com/@dSebastien/using-junit-5-with-spring-boot-2-kotlin-and-mockito-d5aea5b0c668
 
 ### Recommended Tools
-- Java 8 or Later
-- Eclipse Oxygen or Later
-- Spring Boot 2.0.0.RELEASE or Later
+- Java 17 or Later
+- Eclipse Oxygen or Later or IntelliJ Community Edition
+- Spring Boot 3.0.x or 4.0.x
 
 ### Installing Java 8 and Eclipse
 - Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3

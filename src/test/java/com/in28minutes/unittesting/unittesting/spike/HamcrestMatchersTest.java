@@ -3,13 +3,9 @@ package com.in28minutes.unittesting.unittesting.spike;
 import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.endsWith;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.isEmptyString;
-import static org.hamcrest.Matchers.lessThan;
-import static org.hamcrest.Matchers.startsWith;
+// import static org.hamcrest.Matchers.isEmptyString; // Deprecated and works for Spring Boot 3
+import static org.hamcrest.Matchers.*; // For Spring Boot 4
+import static org.hamcrest.text.IsEmptyString.emptyString; // For Spring Boot 4
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +23,8 @@ public class HamcrestMatchersTest {
 		assertThat(numbers, everyItem(greaterThan(10)));
 		assertThat(numbers, everyItem(lessThan(100)));
 		
-		assertThat("", isEmptyString());
+		// assertThat("", isEmptyString());// for spring boot 3
+		assertThat("", is(emptyString())); // for spring boot 4
 		assertThat("ABCDE", containsString("BCD"));
 		assertThat("ABCDE", startsWith("ABC"));
 		assertThat("ABCDE", endsWith("CDE"));
